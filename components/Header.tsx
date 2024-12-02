@@ -22,7 +22,9 @@ const Header = () => {
   return (
     <header className="bg-blue-600 text-white shadow-md">
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
-        <h1 className="text-2xl font-bold">Handmade</h1>
+        <Link href="/" className="text-2xl font-bold">
+          Handmade
+        </Link>
         <nav className="space-x-6">
           <Link href="/" className="hover:text-gray-200 transition">
             Home

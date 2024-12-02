@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { useState } from "react";
 import { Link } from "@/i18n/routing";
 import { useRouter, usePathname } from "next/navigation";
@@ -38,7 +39,24 @@ const Header = () => {
             </Link>
           )}
         </nav>
+
         <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            {user && (
+              <Image
+                src={user.picture || "/images/user-icon.webp"}
+                alt="user image"
+                width={25}
+                height={25}
+                className="rounded-full"
+              />
+            )}
+            {user && (
+              <p className="text-[#0d123e] dark:text-white text-sm  ">
+                {user.name}
+              </p>
+            )}
+          </div>
           {user ? (
             <a href="/api/auth/logout">Logout</a>
           ) : (

@@ -61,8 +61,10 @@ const Header = () => {
             )}
           </div>
           {user ? (
+            // eslint-disable-next-line @next/next/no-html-link-for-pages
             <a href="/api/auth/logout">Logout</a>
           ) : (
+            // eslint-disable-next-line @next/next/no-html-link-for-pages
             <a href="/api/auth/login">Login</a>
           )}
           <div className="relative">

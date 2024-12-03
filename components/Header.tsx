@@ -9,6 +9,7 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 import Loader from "./Loader";
 
 const Header = () => {
+  const [isHovered, setIsHovered] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
@@ -49,12 +50,14 @@ const Header = () => {
                 width={25}
                 height={25}
                 className="rounded-full"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
               />
             )}
-            {user && (
-              <p className="text-[#0d123e] dark:text-white text-sm  ">
-                {user.name}
-              </p>
+            {isHovered && (
+              <div className="absolute top-16 right-4 transform -translate-x-1/2 p-2 bg-gray-700 text-white text-xs rounded shadow-lg z-10">
+                {user ? user.name : "user-name"}
+              </div>
             )}
           </div>
           {user ? (
